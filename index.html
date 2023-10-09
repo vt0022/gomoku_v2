@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gomoku Game</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link href='https://fonts.googleapis.com/css?family=Itim' rel='stylesheet'>
+    <link rel="icon" href="./icon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="name">
+        <h1>CỜ CARO</h1>
+    </div>
+
+    <div class="game-initializer">
+        <div id="board-input">
+            <div>
+                <label for="column-size">Số cột: </label>
+                <input type="number" id="column-size" min="3" max="20" required="true" value="10" placeholder="10"
+                    style="font-family: Itim; font-size: xx-large;  color: rgb(80, 78, 78); border-radius: 10px;">
+                <p class="column-error">Vui lòng nhập số cột</p>
+            </div>
+            <div style="margin-top: 10px;">
+                <label for="row-size">Số hàng: </label>
+                <input type="number" id="row-size" min="3" max="20" required="true" value="10" placeholder="10"
+                    style="font-family: Itim; font-size: xx-large;  color: rgb(80, 78, 78); border-radius: 10px;">
+                <p class="row-error">Vui lòng nhập số cột</p>
+            </div>
+            <div class="game-mode">
+                <select id="mode"
+                    style="font-family: Itim; font-size: xx-large; margin-top: 10px; margin-bottom: 5px; color: rgb(80, 78, 78); border-radius: 10px;">
+                    <option value="normal" selected>Người chơi x người chơi</option> <!-- Default option -->
+                    <option value="computer">Người chơi x máy</option>
+                </select>
+            </div>
+            <div class="game-level">
+                <select id="level"
+                    style="font-family: Itim; font-size: xx-large; color: rgb(80, 78, 78); border-radius: 10px;">
+                    <option value="easy" selected>Dễ</option> <!-- Default option -->
+                    <option value="medium">Trung bình</option>
+                    <option value="hard">Khó</option>
+                </select>
+            </div>
+            <button id="start-button">Bắt đầu</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="board" id="board"></div>
+    </div>
+    <div class="control-button">
+        <button class="new-game">Trò chơi mới</button>
+        <button class="reset-game">Bắt đầu lại</button>
+    </div>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/map.js"></script>
+    <script src="./js/computer.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+body {
+    font-family: "Itim";
+    background-image: url("./images/background.png");
+    background-size: cover; /* Fit the background image within the container */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    margin: 0;
+    text-align: center;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(var(--column-size), 40px);
+    grid-template-rows: repeat(var(--row-size), 40px);
+    gap: 3px 3px;
+}
+
+#level {
+    display: none;
+}
+
+.column-error,
+.row-error {
+    color: red;
+    font-style: italic;
+    display: none;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+    border-color: #21b2cc;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.cell:hover {
+    background-color: #bef8f8;
+}
+
+.name {
+    text-align: center;
+    font-size: xx-large;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #05b66f, #23c887, #e4fcae, #08924d);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.game-initializer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: xx-large;
+}
+
+button {
+    font-family: Itim;
+    font-size: xx-large;
+    margin-top: 5px;
+    background-color: #23c887;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+}
+
+button:hover {
+    color: rgb(109, 109, 109);
+    background-color: #62c99f;
+}
+
+.control-button {
+    text-align: center;
+}
+
+.new-game {
+    display: none;
+    margin-right: 5px;
+}
+
+.reset-game {
+    display: none;
+    background-color: #21b2cc;
+    margin-left: 5px;
+}
