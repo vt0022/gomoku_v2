@@ -73,8 +73,6 @@ function initializeBoard() {
             cell.className = "cell";
             cell.dataset.row = i;
             cell.dataset.column = j;
-            cell.style.borderRadius = "10px";
-            cell.style.fontSize = "xx-large";
             cell.addEventListener("click", () => humanMove(cell));
             board.appendChild(cell);
             matrixGame[i][j] = 0;

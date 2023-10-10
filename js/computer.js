@@ -237,6 +237,7 @@ function minimaxSearchAB(depth, dummyMatrix, isMax, alpha, beta) {
             if (Number(tempMove[0]) < beta) {
                 beta = Number(tempMove[0]);
             }
+
             // Pruning with alpha
             // Alpha value holds the maximum score among the uncle nodes from one upper level.
             // We need to find a score higher than this alpha score, because any score lower than

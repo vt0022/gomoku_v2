@@ -16,7 +16,8 @@ function humanMove(cell) {
 
         // Check if winning
         if (checkWin([cell.dataset.row, cell.dataset.column], currentPlayer)) {
-            alert("Người chơi " + cell.textContent + " thắng!");
+            if (MODE === "computer") alert("Bạn thắng!");
+            else alert("Người chơi " + cell.textContent + " thắng!");
             refreshGame();
         }
         // Check if tie
