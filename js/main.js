@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
     startButton.addEventListener("click", checkInput);
 });
 
-
 function humanMove(cell) {
     if (!cell.textContent) {
         // Display move
