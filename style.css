@@ -60,6 +60,7 @@ body {
     background: linear-gradient(to right, #027245, #23c887, #ffffff, #08924d);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    background-clip: text;
 }
 
 .game-initializer {
