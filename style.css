@@ -57,7 +57,7 @@ body {
     font-size: xx-large;
     margin-top: 20px;
     margin-bottom: 20px;
-    background: linear-gradient(to right, #05b66f, #23c887, #e4fcae, #08924d);
+    background: linear-gradient(to right, #027245, #23c887, #ffffff, #08924d);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
