@@ -1,19 +1,3 @@
-// This variable is used to track the number of evaluations for benchmarking purposes.
-let evaluationCount = 0;
-// Win score should be greater than all possible board scores
-const WIN_SCORE = 100000000;
-
-// Apply mode to play with computer
-function applyMode() {
-    if (LEVEL === "easy") {
-        DEPTH = 2;
-    } else if (LEVEL === "medium") {
-        DEPTH = 3;
-    } else if (LEVEL === "hard") {
-        DEPTH = 4;
-    }
-}
-
 // This function is used for mark a temporary move on the matrix to use for minimax
 function markMove(matrix, x, y, isHuman) {
     matrix[y][x] = isHuman ? 1 : 2; // Human is 1, computer is 2
@@ -30,7 +14,7 @@ function unmarkMove(matrix, x, y) {
 function copyMatrix(matrix) {
     var boardMatrix = [];
     for (var i = 0; i < matrix.length; i++) {
-        boardMatrix[i] = matrix[i].slice(); // Sử dụng phương thức slice() để sao chép mảng con
+        boardMatrix[i] = matrix[i].slice(); // Use slice to copy child matrix
     }
     return boardMatrix;
 }
@@ -101,8 +85,6 @@ function generateMoves(matrix) {
 // (i.e. how likely is O player to win the game before the X player)
 // This value will be used as the score in the Minimax algorithm.
 function evaluateMatrixForComputer(matrix, isHumanTurn) {
-    evaluationCount++;
-
     // Get matrix score of both players.
     let humanScore = getScore(matrix, true, isHumanTurn);
     let computerScore = getScore(matrix, false, isHumanTurn);
@@ -147,10 +129,6 @@ function calculateNextMove(depth) {
             move[1] = parseInt(bestMove[2]);
         }
     }
-    console.log("Cases calculated: " + evaluationCount);
-
-    evaluationCount = 0;
-
     return move;
 }
 
@@ -201,7 +179,7 @@ function minimaxSearchAB(depth, dummyMatrix, isMax, alpha, beta) {
             // lower depth.
             let tempMove = minimaxSearchAB(depth - 1, dummyMatrix, false, alpha, beta);
 
-            // backtrack and remove
+            // backtrack and remove mark
             unmarkMove(dummyMatrix, move[1], move[0]);
 
             // Updating alpha (alpha value holds the maximum score)
@@ -289,13 +267,12 @@ function searchWinningMove(matrix) {
 
     // Iterate for all possible moves
     for (let move of allPossibleMoves) {
-        evaluationCount++;
         // Create a temporary board that is equivalent to the current board
         let dummyMatrix = copyMatrix(matrix);
         // Play the move on that temporary board without drawing anything
         markMove(dummyMatrix, move[1], move[0], false);
 
-        // If the white player has a winning score in that temporary board, return the move.
+        // If the O player has a winning score in that temporary board, return the move.
         if (getScore(dummyMatrix, false, false) >= WIN_SCORE) {
             winningMove[1] = move[0];
             winningMove[2] = move[1];
